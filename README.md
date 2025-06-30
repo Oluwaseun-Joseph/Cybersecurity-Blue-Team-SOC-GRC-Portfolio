@@ -24,7 +24,7 @@ In this project, I performed a credentialed vulnerability scan on a Kali Linux v
 
 <p align="center">
 Overall Scan Result <br/>
-<img src="https://imgur.com/bDuA58E.png" height="90%" width="80%" alt="Credentialed Vulnerability Assessment"/>
+<img src="https://i.imgur.com/SLHjCgY.png" height="90%" width="80%" alt="Credentialed Vulnerability Assessment"/>
 <br />
   
 <p align="center">
