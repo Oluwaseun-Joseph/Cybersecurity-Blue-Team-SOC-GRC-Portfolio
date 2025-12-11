@@ -1,4 +1,4 @@
-# Credentialed Vulnerability Assessment Lab
+# Credentialed Vulnerability Assessment 
 
 This repository contains cybersecurity projects focused on vulnerability assessment, risk analysis, and hands-on security tools such as Nessus, Wireshark, and SIEM technologies.
 
