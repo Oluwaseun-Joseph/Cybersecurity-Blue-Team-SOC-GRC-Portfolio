@@ -1,6 +1,6 @@
 # Credentialed Vulnerability Assessment 
 
-This repository contains cybersecurity projects focused on vulnerability assessment, risk analysis, and hands-on security tools such as Nessus, Wireshark, and SIEM technologies.
+This repository contains my cybersecurity projects focused on vulnerability assessment, risk analysis, and hands-on security tools such as Nessus, Wireshark, and SIEM technologies.
 
 ### Projects Included
 - **Project 01 – Nessus VM Credentialed Vulnerability Assessment**  
