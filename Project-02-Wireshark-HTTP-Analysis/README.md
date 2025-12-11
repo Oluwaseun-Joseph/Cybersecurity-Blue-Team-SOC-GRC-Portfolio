@@ -105,13 +105,13 @@ HTTP traffic sent to:
 ---
 
 ## Skills Demonstrated
-✔ Network packet analysis  
-✔ Use of Wireshark filters  
-✔ HTTP protocol inspection  
-✔ Latency measurement  
-✔ Layer-by-layer traffic analysis (Ethernet → IP → TCP → HTTP)  
-✔ Extracting technical metadata from packet headers  
-✔ Documenting findings clearly  
+- Network packet analysis  
+- Use of Wireshark filters  
+- HTTP protocol inspection  
+- Latency measurement  
+- Layer-by-layer traffic analysis (Ethernet → IP → TCP → HTTP)  
+- Extracting technical metadata from packet headers  
+- Documenting findings clearly  
 
 ---
 
@@ -132,7 +132,7 @@ Project-02-Wireshark-HTTP-Analysis/
 ---
 
 ## Files Included
-- **PDF:** Original lab report (`Files/Lab-01-Wireshark-Report.pdf`)  
+- **PDF:** Original lab report (`Files/Project-02-Wireshark-Report.pdf`)  
 - **Screenshots:** Extracted from lab implementation for visual explanation  
 - **README:** Professional write-up summarizing the project
 
