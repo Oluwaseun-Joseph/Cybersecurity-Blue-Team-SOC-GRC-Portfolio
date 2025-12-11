@@ -1,4 +1,4 @@
-# Credentialed Vulnerability Assessment 
+# Cybersecurity-Blue-Team-SOC-GRC-Portfolio
 
 This repository contains my cybersecurity projects focused on vulnerability assessment, risk analysis, and hands-on security tools such as Nessus, Wireshark, and SIEM technologies.
 
