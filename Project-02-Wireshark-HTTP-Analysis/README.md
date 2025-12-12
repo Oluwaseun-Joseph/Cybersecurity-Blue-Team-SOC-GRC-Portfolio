@@ -124,17 +124,17 @@ HTTP traffic sent to:
 ## Repository Structure
 ```
 Project-02-Wireshark-HTTP-Analysis/
-├── README.md
+├── Files/
+│   └── Project-02-HTTP-Traffic-Analysis-Using-Wireshark.pdf
 ├── Screenshots/
-│ ├── wireshark-startup.png
-│ ├── wireshark-interfaces.png
-│ ├── wireshark-live-capture.png
-│ ├── http-get-ok.png
-│ ├── http-filter.png
-│ ├── http-get-details.png
-│ └── http-time-calc.png
-└── Files/
-└── Project-02-HTTP Traffic Analysis Using Wireshark.pdf
+│   ├── wireshark-startup.png
+│   ├── wireshark-interfaces.png
+│   ├── wireshark-live-capture.png
+│   ├── http-filter.png
+│   ├── http-get-ok.png
+│   ├── http-get-details.png
+│   └── http-time-calc.png
+└── README.md
 ```
 ---
 
