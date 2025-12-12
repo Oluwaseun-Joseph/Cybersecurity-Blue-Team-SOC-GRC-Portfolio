@@ -237,7 +237,7 @@ Project-03-Wireshark-TCP-Analysis/
 │ ├── segment3-size.png
 │ ├── segment4-size.png
 │ └── no-retransmissions.png
-└── Files/
+└── File/
 └── Project-03-Wireshark-TCP-Report.pdf
 
 ```
