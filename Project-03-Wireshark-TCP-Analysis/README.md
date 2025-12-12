@@ -19,9 +19,12 @@ The investigation focuses on:
 This project demonstrates **packet-level network analysis skills** relevant to SOC, Blue Team,
 and Network Security roles.
 
+> 📌 **Note:** All screenshots referenced below are stored in the `/Screenshots` directory
+> and are named to match their corresponding figure numbers for traceability.
+
 ---
 
-## 🧪 Lab Environment
+##  Lab Environment
 
 - **Operating System:** Windows 10  
 - **Tool:** Wireshark  
@@ -32,7 +35,7 @@ and Network Security roles.
 
 ---
 
-## 🎯 Objectives
+##  Objectives
 
 - Capture a real TCP file upload
 - Observe the TCP three-way handshake
@@ -49,10 +52,10 @@ and Network Security roles.
 
 The ASCII version of *Alice’s Adventures in Wonderland* was downloaded from the UMass Wireshark lab site.
 
-📸 **Figure 1 – Browser accessing `alice.txt`**  
+**Figure 1 – Browser accessing `alice.txt`**  
 📁 Screenshot file: `alice-download.png`
 
-📸 **Figure 2 – Saving `alice.txt` locally**  
+**Figure 2 – Saving `alice.txt` locally**  
 📁 Screenshot file: `alice-save-dialog.png`
 
 ---
@@ -61,7 +64,7 @@ The ASCII version of *Alice’s Adventures in Wonderland* was downloaded from th
 
 The TCP upload page was accessed to prepare for uploading the file.
 
-📸 **Figure 3 – TCP upload page on gaia.cs.umass.edu**  
+ **Figure 3 – TCP upload page on gaia.cs.umass.edu**  
 📁 Screenshot file: `tcp-upload-page.png`
 
 ---
@@ -70,7 +73,7 @@ The TCP upload page was accessed to prepare for uploading the file.
 
 The previously downloaded `alice.txt` file was selected using the Browse button.
 
-📸 **Figure 4 – Selecting the `alice.txt` file**  
+**Figure 4 – Selecting the `alice.txt` file**  
 📁 Screenshot file: `file-selection.png`
 
 ---
@@ -79,7 +82,7 @@ The previously downloaded `alice.txt` file was selected using the Browse button.
 
 Wireshark packet capture was started before initiating the upload.
 
-📸 **Figure 5 – Wireshark capture started**  
+ **Figure 5 – Wireshark capture started**  
 📁 Screenshot file: `wireshark-start-capture.png`
 
 ---
@@ -88,24 +91,24 @@ Wireshark packet capture was started before initiating the upload.
 
 The file upload was initiated and confirmed as successful.
 
-📸 **Figure 6 – Upload confirmation message**  
+ **Figure 6 – Upload confirmation message**  
 📁 Screenshot file: `upload-confirmation.png`
 
 ---
 
-## 🔎 Packet Analysis
+##  Packet Analysis
 
 ### HTTP POST Inspection & Segmentation
 
 The captured trace was inspected to locate the HTTP POST request responsible for uploading
 `alice.txt`.
 
-📸 **Figure 7 – Expanded HTTP POST request**  
+ **Figure 7 – Expanded HTTP POST request**  
 📁 Screenshot file: `http-post-expanded.png`
 
 The POST payload exceeded a single TCP segment and was therefore segmented.
 
-📸 **Figure 8 – TCP segment containing start of POST payload**  
+**Figure 8 – TCP segment containing start of POST payload**  
 📁 Screenshot file: `tcp-segmentation.png`
 
 ---
@@ -114,22 +117,22 @@ The POST payload exceeded a single TCP segment and was therefore segmented.
 
 A TCP display filter was applied to isolate handshake packets.
 
-📸 **Figure 9 – TCP three-way handshake (SYN, SYN/ACK, ACK)**  
+**Figure 9 – TCP three-way handshake (SYN, SYN/ACK, ACK)**  
 📁 Screenshot file: `tcp-handshake.png`
 
 ---
 
-## 📊 Findings (Key Questions & Evidence)
+##  Findings (Key Questions & Evidence)
 
 ### Client & Server Details
 
-📸 **Figure 10 – Client IP and source port**  
+ **Figure 10 – Client IP and source port**  
 📁 Screenshot file: `client-ip-port.png`
 
 - Client IP: `10.166.239.226`
 - Source Port: `62381`
 
-📸 **Figure 11 – Server IP and destination port**  
+ **Figure 11 – Server IP and destination port**  
 📁 Screenshot file: `server-ip-port.png`
 
 - Server IP: `128.119.245.12`
@@ -139,7 +142,7 @@ A TCP display filter was applied to isolate handshake packets.
 
 ### TCP Control Segments
 
-📸 **Figure 12 – Initial TCP SYN segment**  
+**Figure 12 – Initial TCP SYN segment**  
 📁 Screenshot file: `syn-segment.png`
 
 📸 **Figure 13 – SYN/ACK response from server**  
@@ -149,7 +152,7 @@ A TCP display filter was applied to isolate handshake packets.
 
 ### HTTP POST Segment Details
 
-📸 **Figure 14 – TCP segment carrying HTTP POST header**  
+**Figure 14 – TCP segment carrying HTTP POST header**  
 📁 Screenshot file: `post-segment.png`
 
 - Payload size: 721 bytes
@@ -159,18 +162,18 @@ A TCP display filter was applied to isolate handshake packets.
 
 ### RTT Measurement
 
-📸 **Figure 15 – Time POST segment sent**  
+**Figure 15 – Time POST segment sent**  
 📁 Screenshot file: `rtt-post-send.png`
 
-📸 **Figure 16 – ACK received for POST segment**  
+**Figure 16 – ACK received for POST segment**  
 📁 Screenshot file: `rtt-post-ack.png`
 
 - RTT ≈ **27.55 ms**
 
-📸 **Figure 17 – Second data segment sent**  
+**Figure 17 – Second data segment sent**  
 📁 Screenshot file: `rtt-second-send.png`
 
-📸 **Figure 18 – ACK received for second segment**  
+**Figure 18 – ACK received for second segment**  
 📁 Screenshot file: `rtt-second-ack.png`
 
 - RTT ≈ **27.85 ms**
@@ -179,7 +182,7 @@ A TCP display filter was applied to isolate handshake packets.
 
 ### TCP Segment Sizes
 
-📸 **Figures 19a–19d – Total length of first four TCP data segments**  
+**Figures 19a–19d – Total length of first four TCP data segments**  
 📁 Screenshot files:
 - `segment-length-1.png`
 - `segment-length-2.png`
@@ -190,7 +193,7 @@ A TCP display filter was applied to isolate handshake packets.
 
 ### Flow Control (Advertised Window)
 
-📸 **Figures 20a–20d – Receiver advertised window sizes**  
+**Figures 20a–20d – Receiver advertised window sizes**  
 📁 Screenshot files:
 - `window-30720.png`
 - `window-33664.png`
@@ -204,7 +207,7 @@ A TCP display filter was applied to isolate handshake packets.
 
 ### Retransmission Check
 
-📸 **Figure 21 – Retransmission filter applied**  
+**Figure 21 – Retransmission filter applied**  
 📁 Screenshot file: `retransmission-filter.png`
 
 - Result: **No TCP retransmissions detected**
@@ -212,7 +215,7 @@ A TCP display filter was applied to isolate handshake packets.
 ---
 
 ## 📁 Project Structure
-
+```
 Project-03-Wireshark-TCP-Analysis/
 ├── README.md
 ├── Report/
@@ -228,13 +231,11 @@ Project-03-Wireshark-TCP-Analysis/
 │ └── retransmission-filter.png
 └── Raw_Logs/
 └── tcp-upload.pcapng
-
-yaml
-Copy code
+```
 
 ---
 
-## 🧠 Skills Demonstrated
+##  Skills Demonstrated
 
 - Network packet analysis (Wireshark)
 - TCP protocol internals
@@ -245,7 +246,7 @@ Copy code
 
 ---
 
-## 🏁 Conclusion
+##  Conclusion
 
 This project provides a real-world demonstration of TCP reliability mechanisms using
 packet-level evidence. By capturing and analyzing a live file upload, the project validates
