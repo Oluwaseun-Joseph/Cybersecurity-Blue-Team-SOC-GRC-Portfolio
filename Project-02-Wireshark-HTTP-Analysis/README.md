@@ -133,12 +133,12 @@ Project-02-Wireshark-HTTP-Analysis/
 │ ├── http-get-details.png
 │ └── http-time-calc.png
 └── Files/
-└── Project-02-Wireshark-Report.pdf
+└── Project-02-HTTP Traffic Analysis Using Wireshark.pdf
 
 ---
 
 ## Files Included
-- **PDF:** Original lab report (`Files/Project-02-Wireshark-Report.pdf`)  
+- **PDF:** Original lab report (`Files/Project-02-HTTP Traffic Analysis Using Wireshark.pdf`)  
 - **Screenshots:** Extracted from lab implementation for visual explanation  
 - **README:** Professional write-up summarizing the project
 
