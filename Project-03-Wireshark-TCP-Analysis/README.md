@@ -41,7 +41,7 @@ This project demonstrates strong packet analysis skills and a deep understanding
 ### 1. Downloading *Alice in Wonderland*  
 URL used:  
 http://gaia.cs.umass.edu/wireshark-labs/alice.txt  
-📸 `Screenshots/alice-download.png`
+ `Screenshots/alice-download.png`
 
 ### 2. Navigating to the Upload Page  
 📸 `Screenshots/tcp-upload-page.png`
