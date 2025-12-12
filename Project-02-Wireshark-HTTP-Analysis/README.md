@@ -54,7 +54,7 @@ Capture begins and packets appear in real time.
 
 ### **4. Capturing HTTP Messages**
 HTTP GET and OK response captured.  
-📌 *Screenshot required:*  
+![Overall Scan](Screenshots/http-get-ok.png) 
 `Screenshots/http-get-ok.png`
 
 ### **5. Applying HTTP Filters**
