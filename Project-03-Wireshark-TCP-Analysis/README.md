@@ -229,8 +229,8 @@ Project-03-Wireshark-TCP-Analysis/
 │ ├── rtt-post-send.png
 │ ├── rtt-post-ack.png
 │ └── retransmission-filter.png
-└── Raw_Logs/
-└── tcp-upload.pcapng
+
+
 ```
 
 ---
