@@ -49,7 +49,7 @@ Wi-Fi selected for capturing packets.
 
 ### **3. Capturing Live Packets**
 Capture begins and packets appear in real time.  
-![Overall Scan](Screenshots/live capture.png)
+![Overall Scan](Screenshots/live-capture.png)
 `Screenshots/wireshark-live-capture.png`
 
 ### **4. Capturing HTTP Messages**
