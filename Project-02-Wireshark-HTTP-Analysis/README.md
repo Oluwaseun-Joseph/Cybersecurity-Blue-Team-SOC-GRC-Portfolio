@@ -54,24 +54,26 @@ Capture begins and packets appear in real time.
 
 ### **4. Capturing HTTP Messages**
 HTTP GET and OK response captured.  
-![Overall Scan](Screenshots/http-get-ok.png) 
-`Screenshots/http-get-ok.png`
+![Overall Scan](Screenshots/http-GET.png) 
+`Screenshots/http-get.png`
+![Overall Scan](Screenshots/http-OK.png) 
+`Screenshots/http-ok.png`
 
 ### **5. Applying HTTP Filters**
 Filtered by typing `http` in the display filter bar.  
-📌 *Screenshot required:*  
+![Overall Scan](Screenshots/http-filter.png)  
 `Screenshots/http-filter.png`
 
 ### **6. HTTP GET Request Details**
 Expanded HTTP layer showing GET request.  
-📌 *Screenshot required:*  
+![Overall Scan](Screenshots/http-GET.png) 
 `Screenshots/http-get-details.png`
 
 ### **7. Measuring Response Time**
 GET timestamp and OK timestamp used to calculate latency.  
 Example from the lab report:  
 `0.029683 seconds`  
-📌 *Screenshot required:*  
+![Overall Scan](Screenshots/http-time-calc.png)  
 `Screenshots/http-time-calc.png`
 
 ---
@@ -93,10 +95,14 @@ Time between GET request and HTTP OK reply:
 From packet details:  
 - **Server:** `128.119.245.12`  
 - **Client:** `10.166.236.11`
+![Overall Scan](Screenshots/ip-identification.png)
+`Screenshots/ip-identification.png`
 
 ### **4. Browser Used**
 From User-Agent field:  
 **Microsoft Edge**
+![Overall Scan](Screenshots/browser-information.png)
+`Screenshots/browser-information.png`
 
 ### **5. Destination Port**
 HTTP traffic sent to:  
