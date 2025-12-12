@@ -39,17 +39,17 @@ _All analysis and screenshots were performed on a Windows 10 system using Wi-Fi 
 
 ### **1. Wireshark Startup Interface**
 Shows available network interfaces.  
-📌 *Screenshot required:*  
+![Overall Scan](Screenshots/wireshark-startup.png)
 `Screenshots/wireshark-startup.png`
 
 ### **2. Interface Selection**
 Wi-Fi selected for capturing packets.  
-![Overall Scan](Screenshots/wireshark-interfaces.png)
+![Overall Scan](Screenshots/wireshark-interfaces1.png)
 `Screenshots/wireshark-interfaces.png`
 
 ### **3. Capturing Live Packets**
 Capture begins and packets appear in real time.  
-📌 *Screenshot required:*  
+![Overall Scan](Screenshots/live capture.png)
 `Screenshots/wireshark-live-capture.png`
 
 ### **4. Capturing HTTP Messages**
