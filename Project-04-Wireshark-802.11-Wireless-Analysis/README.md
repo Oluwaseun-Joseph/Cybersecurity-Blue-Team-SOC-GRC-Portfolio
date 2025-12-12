@@ -55,7 +55,7 @@ These requests confirm successful data transmission over the wireless link prior
 
 ---
 
-## 📡 Beacon Frame & Network Discovery Analysis
+##  Beacon Frame & Network Discovery Analysis
 
 ### Wireless Networks Observed
 Beacon frame analysis revealed two access points advertising most frequently during the capture:
@@ -104,7 +104,7 @@ This reflects backward compatibility with legacy clients while supporting higher
 
 ---
 
-## 🛰️ MAC Roles & TCP over 802.11
+##  MAC Roles & TCP over 802.11
 
 802.11 frames encapsulating TCP traffic reveal distinct MAC roles:
 
@@ -125,7 +125,7 @@ This demonstrates **Layer-2 forwarding over wireless** with Layer-3 routing beyo
 
 ---
 
-## 🔁 SYN/ACK Analysis over Wireless
+##  SYN/ACK Analysis over Wireless
 
 A TCP SYN/ACK frame carried within 802.11 contains three MAC addresses:
 
@@ -139,7 +139,7 @@ This highlights the distinction between **IP endpoints** and **wireless hop MAC 
 
 ---
 
-## 🔌 Disconnection & Roaming Attempt
+##  Disconnection & Roaming Attempt
 
 At **49.58s**, the host intentionally disconnects from `30 Munroe St` by:
 
@@ -155,7 +155,7 @@ No disassociation frames were observed, indicating deauthentication alone was us
 
 ---
 
-## 🔐 Authentication Failure & Recovery
+##  Authentication Failure & Recovery
 
 The host attempts to authenticate with `linksys_ses_24086`:
 
@@ -172,7 +172,7 @@ The host subsequently abandons this attempt.
 
 ---
 
-## 🔄 Successful Reassociation
+##  Successful Reassociation
 
 At **63.169s**, the host successfully authenticates and associates with  
 `30 Munroe St`, completing the wireless recovery process.
@@ -185,7 +185,7 @@ At **63.169s**, the host successfully authenticates and associates with
 
 ---
 
-## 🎯 Conclusion
+##  Conclusion
 This project demonstrates a **complete end-to-end 802.11 wireless analysis**, including:
 
 - Beacon-based network discovery  
