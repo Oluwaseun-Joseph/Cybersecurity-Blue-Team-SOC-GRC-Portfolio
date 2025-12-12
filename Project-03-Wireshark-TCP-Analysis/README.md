@@ -217,29 +217,28 @@ A TCP display filter was applied to isolate handshake packets.
 ## 📁 Project Structure
 ```
 Project-03-Wireshark-TCP-Analysis/
-├── README.md
+├── Files/
+│   └── Project-03-Wireshark-TCP-Analysis-Report.pdf
 ├── Screenshots/
-│ ├── alice-download.png
-│ ├── tcp-upload-page.png
-│ ├── wireshark-start-capture.png
-│ ├── upload-confirmation.png
-│ ├── tcp-segmentation.png
-│ ├── tcp-handshake.png
-│ ├── client-ip-port.png
-│ ├── server-ip-port.png
-│ ├── syn-segment.png
-│ ├── synack-segment.png
-│ ├── http-post-segment.png
-│ ├── rtt-segment-1.png
-│ ├── rtt-segment-2.png
-│ ├── segment1-size.png
-│ ├── segment2-size.png
-│ ├── segment3-size.png
-│ ├── segment4-size.png
-│ └── no-retransmissions.png
-└── File/
-└──  Project-03-Wireshark-TCP- Analysis-Report.pdf
-
+│   ├── alice-download.png
+│   ├── tcp-upload-page.png
+│   ├── wireshark-start-capture.png
+│   ├── upload-confirmation.png
+│   ├── tcp-handshake.png
+│   ├── tcp-segmentation.png
+│   ├── client-ip-port.png
+│   ├── server-ip-port.png
+│   ├── syn-segment.png
+│   ├── synack-segment.png
+│   ├── http-post-segment.png
+│   ├── rtt-segment-1.png
+│   ├── rtt-segment-2.png
+│   ├── segment1-size.png
+│   ├── segment2-size.png
+│   ├── segment3-size.png
+│   ├── segment4-size.png
+│   └── no-retransmissions.png
+└── README.md
 ```
 
 ---
