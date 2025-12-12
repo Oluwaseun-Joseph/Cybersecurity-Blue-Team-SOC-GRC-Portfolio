@@ -1,220 +1,257 @@
 # Project 03 – Wireshark TCP Analysis: File Upload, Segmentation & RTT Measurement
 
-## Overview
-This project analyzes how TCP ensures reliable delivery by capturing the upload of a 150 KB file (**alice.txt**) from a local Windows computer to the server **gaia.cs.umass.edu**. Using Wireshark, I examined:
+## 📌 Overview
 
-- The TCP three-way handshake  
-- Sequence and acknowledgment numbers  
-- TCP segmentation of a large HTTP POST  
-- Flow control using the receiver-advertised window  
-- Congestion control behaviors  
-- Retransmission detection  
-- Round-trip time (RTT) measurements  
+This project analyzes how the **Transmission Control Protocol (TCP)** ensures reliable data delivery
+by capturing and inspecting a real file upload using **Wireshark**.
 
-This project demonstrates strong packet analysis skills and a deep understanding of TCP reliability and performance mechanisms.
+A ~150 KB text file (*Alice’s Adventures in Wonderland*) was uploaded from a client machine to the
+remote server **gaia.cs.umass.edu**, and the full packet exchange was captured and analyzed.
+The investigation focuses on:
+
+- TCP three-way handshake
+- Sequence and acknowledgment numbers
+- TCP segmentation
+- Receiver-advertised window (flow control)
+- Round-trip time (RTT) measurement
+- Retransmission verification
+
+This project demonstrates **packet-level network analysis skills** relevant to SOC, Blue Team,
+and Network Security roles.
 
 ---
 
-## Lab Environment
+## 🧪 Lab Environment
+
 - **Operating System:** Windows 10  
-- **Tool:** Wireshark (latest version)  
-- **Protocol:** TCP  
+- **Tool:** Wireshark  
+- **Protocol Analyzed:** TCP / HTTP  
 - **Server:** gaia.cs.umass.edu  
-- **File Uploaded:** `alice.txt` (150 KB)  
-- **Network:** Wi-Fi  
+- **File Uploaded:** `alice.txt` (~150 KB)  
+- **Network Type:** Wi-Fi  
 
 ---
 
-## Objectives
-1. Capture a TCP file upload to a remote server  
-2. Identify handshake packets (SYN, SYN/ACK, ACK)  
-3. Analyze segmentation of large HTTP POST data  
-4. Trace sequence and acknowledgment numbers  
-5. Measure TCP RTT  
-6. Evaluate receiver-advertised window values  
-7. Check for retransmissions  
+## 🎯 Objectives
+
+- Capture a real TCP file upload
+- Observe the TCP three-way handshake
+- Analyze TCP sequence & acknowledgment numbers
+- Examine TCP segmentation behavior
+- Measure RTT from packet timestamps
+- Validate whether retransmissions occurred
 
 ---
 
-# 📌 **Implementation & Evidence**
+## 🔬 Investigation Walkthrough
 
-### 1. Downloading *Alice in Wonderland*  
-URL used:  
-http://gaia.cs.umass.edu/wireshark-labs/alice.txt  
- `Screenshots/alice-download.png`
+### Step 1: Downloading the File
 
-### 2. Navigating to the Upload Page  
-📸 `Screenshots/tcp-upload-page.png`
+The ASCII version of *Alice’s Adventures in Wonderland* was downloaded from the UMass Wireshark lab site.
 
-### 3. Starting the Wireshark Capture  
-📸 `Screenshots/wireshark-start-capture.png`
+📸 **Figure 1 – Browser accessing `alice.txt`**  
+📁 Screenshot file: `alice-download.png`
 
-### 4. Uploading the File (HTTP POST Triggered)  
-📸 `Screenshots/upload-confirmation.png`
+📸 **Figure 2 – Saving `alice.txt` locally**  
+📁 Screenshot file: `alice-save-dialog.png`
 
 ---
 
-# 📘 **Questions & Analysis (Numbered and Structured)**
+### Step 2: Navigating to the Upload Page
+
+The TCP upload page was accessed to prepare for uploading the file.
+
+📸 **Figure 3 – TCP upload page on gaia.cs.umass.edu**  
+📁 Screenshot file: `tcp-upload-page.png`
 
 ---
 
-## **Question 1 — Client IP & Port**
-📌 **Findings:**  
-- Client IP: `10.166.239.226`  
-- Client Port: `62381`  
+### Step 3: Selecting the File
 
-📸 Screenshot: `Screenshots/client-ip-port.png`
+The previously downloaded `alice.txt` file was selected using the Browse button.
 
----
-
-## **Question 2 — Server IP & Port**
-📌 **Findings:**  
-- Server IP: `128.119.245.12`  
-- Server Port: `80`  
-
-📸 Screenshot: `Screenshots/server-ip-port.png`
+📸 **Figure 4 – Selecting the `alice.txt` file**  
+📁 Screenshot file: `file-selection.png`
 
 ---
 
-## **Question 3 — Identifying the SYN Segment**
-📌 The SYN segment contains:  
-- Raw sequence number: `2777201873`  
-- Relative sequence: `0`  
-- Flag: SYN  
+### Step 4: Starting Packet Capture
 
-📸 Screenshot: `Screenshots/syn-segment.png`
+Wireshark packet capture was started before initiating the upload.
 
----
-
-## **Question 4 — Identifying the SYN/ACK Segment**
-📌 The SYN/ACK includes:  
-- Server Initial Sequence: `2276437536`  
-- Acknowledgment Number: `996038718`  
-- Flags: **SYN + ACK**
-
-📸 Screenshot: `Screenshots/synack-segment.png`
+📸 **Figure 5 – Wireshark capture started**  
+📁 Screenshot file: `wireshark-start-capture.png`
 
 ---
 
-## **Question 5 — TCP Segment Containing the HTTP POST**
-📌 For **Packet #306**:  
-- Raw sequence number: `996381015`  
-- Relative sequence: `1`  
-- Payload size: `721 bytes`  
-- The full upload did **not** fit in a single segment  
+### Step 5: Uploading the File
 
-📸 Screenshot: `Screenshots/http-post-segment.png`
+The file upload was initiated and confirmed as successful.
+
+📸 **Figure 6 – Upload confirmation message**  
+📁 Screenshot file: `upload-confirmation.png`
 
 ---
 
-## **Question 6 — RTT Measurements**
+## 🔎 Packet Analysis
 
-### RTT for First Segment  
-- Send: `15:46:03.131396000`  
-- ACK: `15:46:03.158948000`  
-- **RTT ≈ 27.552 ms**
+### HTTP POST Inspection & Segmentation
 
-📸 `Screenshots/rtt-segment-1.png`
+The captured trace was inspected to locate the HTTP POST request responsible for uploading
+`alice.txt`.
 
-### RTT for Second Segment  
-- Send: `15:46:03.133258`  
-- ACK: `15:46:03.161104`  
-- **RTT ≈ 27.846 ms**
+📸 **Figure 7 – Expanded HTTP POST request**  
+📁 Screenshot file: `http-post-expanded.png`
 
-📸 `Screenshots/rtt-segment-2.png`
+The POST payload exceeded a single TCP segment and was therefore segmented.
 
----
-
-## **Question 7 — Segment Sizes (Header + Payload Breakdown)**
-
-| Segment | Frame | Header | Payload | Total |
-|---------|--------|---------|----------|--------|
-| 1 | 306 | 20 B | 721 B | 741 B |
-| 2 | 315 | 20 B | 11,250 B | 11,270 B |
-| 3 | 316 | 20 B | 1,250 B | 1,270 B |
-| 4 | 338 | 20 B | 2,500 B | 2,520 B |
-
-📸 Screenshots:  
-- `Screenshots/segment1-size.png`  
-- `Screenshots/segment2-size.png`  
-- `Screenshots/segment3-size.png`  
-- `Screenshots/segment4-size.png`
+📸 **Figure 8 – TCP segment containing start of POST payload**  
+📁 Screenshot file: `tcp-segmentation.png`
 
 ---
 
-## **Question 8 — Minimum Advertised Window (Flow Control)**
+### TCP Handshake Observation
 
-| Data Segment | ACK Frame | Advertised Window |
-|--------------|------------|-------------------|
-| 1 | 335 | 30,720 B |
-| 2 | 337 | 33,664 B |
-| 3 | 339 | 43,648 B |
-| 4 | 340 | 53,632 B |
+A TCP display filter was applied to isolate handshake packets.
 
-📌 **Minimum Advertised Window:** 30,720 bytes  
-📌 Sender was **never throttled**.
-
-📸 Screenshots:  
-`Screenshots/window-335.png`  
-`Screenshots/window-337.png`  
-`Screenshots/window-339.png`  
-`Screenshots/window-340.png`
+📸 **Figure 9 – TCP three-way handshake (SYN, SYN/ACK, ACK)**  
+📁 Screenshot file: `tcp-handshake.png`
 
 ---
 
-## **Question 9 — Retransmission Check**
-Using:  
-`tcb.analysis.retransmission`
+## 📊 Findings (Key Questions & Evidence)
 
-📌 **Result:** No retransmissions occurred.  
-The connection was stable and clean.
+### Client & Server Details
 
-📸 Screenshot: `Screenshots/no-retransmissions.png`
+📸 **Figure 10 – Client IP and source port**  
+📁 Screenshot file: `client-ip-port.png`
 
----
+- Client IP: `10.166.239.226`
+- Source Port: `62381`
 
-# 🧾 Conclusion
-This project provided hands-on insight into how TCP maintains reliable, ordered delivery during a file upload. Through analyzing handshake behavior, segmentation patterns, acknowledgments, congestion control signals, RTT values, and flow control, I gained practical understanding of real-world TCP performance.
+📸 **Figure 11 – Server IP and destination port**  
+📁 Screenshot file: `server-ip-port.png`
 
-Skills demonstrated include:
-
-- Packet inspection using Wireshark  
-- Sequence/ACK number interpretation  
-- Flow control and congestion control analysis  
-- RTT computation  
-- Large payload segmentation tracing  
-- Applying filters to isolate protocol events  
+- Server IP: `128.119.245.12`
+- Destination Port: `80`
 
 ---
 
-# 📁 Repository Structure
+### TCP Control Segments
 
-```
+📸 **Figure 12 – Initial TCP SYN segment**  
+📁 Screenshot file: `syn-segment.png`
+
+📸 **Figure 13 – SYN/ACK response from server**  
+📁 Screenshot file: `synack-segment.png`
+
+---
+
+### HTTP POST Segment Details
+
+📸 **Figure 14 – TCP segment carrying HTTP POST header**  
+📁 Screenshot file: `post-segment.png`
+
+- Payload size: 721 bytes
+- File transmitted across multiple TCP segments
+
+---
+
+### RTT Measurement
+
+📸 **Figure 15 – Time POST segment sent**  
+📁 Screenshot file: `rtt-post-send.png`
+
+📸 **Figure 16 – ACK received for POST segment**  
+📁 Screenshot file: `rtt-post-ack.png`
+
+- RTT ≈ **27.55 ms**
+
+📸 **Figure 17 – Second data segment sent**  
+📁 Screenshot file: `rtt-second-send.png`
+
+📸 **Figure 18 – ACK received for second segment**  
+📁 Screenshot file: `rtt-second-ack.png`
+
+- RTT ≈ **27.85 ms**
+
+---
+
+### TCP Segment Sizes
+
+📸 **Figures 19a–19d – Total length of first four TCP data segments**  
+📁 Screenshot files:
+- `segment-length-1.png`
+- `segment-length-2.png`
+- `segment-length-3.png`
+- `segment-length-4.png`
+
+---
+
+### Flow Control (Advertised Window)
+
+📸 **Figures 20a–20d – Receiver advertised window sizes**  
+📁 Screenshot files:
+- `window-30720.png`
+- `window-33664.png`
+- `window-43648.png`
+- `window-53632.png`
+
+- Minimum advertised window: **30,720 bytes**
+- Sender was **never throttled**
+
+---
+
+### Retransmission Check
+
+📸 **Figure 21 – Retransmission filter applied**  
+📁 Screenshot file: `retransmission-filter.png`
+
+- Result: **No TCP retransmissions detected**
+
+---
+
+## 📁 Project Structure
+
 Project-03-Wireshark-TCP-Analysis/
 ├── README.md
+├── Report/
+│ └── Wireshark-TCP-Analysis-Report.pdf
 ├── Screenshots/
 │ ├── alice-download.png
 │ ├── tcp-upload-page.png
 │ ├── wireshark-start-capture.png
-│ ├── upload-confirmation.png
-│ ├── tcp-segmentation.png
 │ ├── tcp-handshake.png
-│ ├── client-ip-port.png
-│ ├── server-ip-port.png
-│ ├── syn-segment.png
-│ ├── synack-segment.png
-│ ├── http-post-segment.png
-│ ├── rtt-segment-1.png
-│ ├── rtt-segment-2.png
-│ ├── segment1-size.png
-│ ├── segment2-size.png
-│ ├── segment3-size.png
-│ ├── segment4-size.png
-│ ├── window-335.png
-│ ├── window-337.png
-│ ├── window-339.png
-│ ├── window-340.png
-│ └── no-retransmissions.png
-└── Files/
-└── Lab-02-Wireshark-TCP-Report.pdf
+│ ├── tcp-segmentation.png
+│ ├── rtt-post-send.png
+│ ├── rtt-post-ack.png
+│ └── retransmission-filter.png
+└── Raw_Logs/
+└── tcp-upload.pcapng
+
+yaml
+Copy code
+
+---
+
+## 🧠 Skills Demonstrated
+
+- Network packet analysis (Wireshark)
+- TCP protocol internals
+- RTT and performance measurement
+- Evidence-based investigation
+- SOC-style documentation
+- GitHub portfolio structuring
+
+---
+
+## 🏁 Conclusion
+
+This project provides a real-world demonstration of TCP reliability mechanisms using
+packet-level evidence. By capturing and analyzing a live file upload, the project validates
+how TCP establishes connections, segments data, manages flow control, and ensures reliable
+delivery without retransmissions.
+
+This analysis reflects skills directly applicable to **SOC Analyst, Network Security,
+and Blue Team roles**.
 ```
