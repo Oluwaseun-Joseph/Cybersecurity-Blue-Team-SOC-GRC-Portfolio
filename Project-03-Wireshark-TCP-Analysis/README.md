@@ -218,18 +218,27 @@ A TCP display filter was applied to isolate handshake packets.
 ```
 Project-03-Wireshark-TCP-Analysis/
 ├── README.md
-├── Report/
-│ └── Wireshark-TCP-Analysis-Report.pdf
 ├── Screenshots/
 │ ├── alice-download.png
 │ ├── tcp-upload-page.png
 │ ├── wireshark-start-capture.png
-│ ├── tcp-handshake.png
+│ ├── upload-confirmation.png
 │ ├── tcp-segmentation.png
-│ ├── rtt-post-send.png
-│ ├── rtt-post-ack.png
-│ └── retransmission-filter.png
-
+│ ├── tcp-handshake.png
+│ ├── client-ip-port.png
+│ ├── server-ip-port.png
+│ ├── syn-segment.png
+│ ├── synack-segment.png
+│ ├── http-post-segment.png
+│ ├── rtt-segment-1.png
+│ ├── rtt-segment-2.png
+│ ├── segment1-size.png
+│ ├── segment2-size.png
+│ ├── segment3-size.png
+│ ├── segment4-size.png
+│ └── no-retransmissions.png
+└── Files/
+└── Project-03-Wireshark-TCP-Report.pdf
 
 ```
 
