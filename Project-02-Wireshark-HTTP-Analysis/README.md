@@ -122,6 +122,7 @@ HTTP traffic sent to:
 ---
 
 ## Repository Structure
+```
 Project-02-Wireshark-HTTP-Analysis/
 ├── README.md
 ├── Screenshots/
@@ -134,16 +135,14 @@ Project-02-Wireshark-HTTP-Analysis/
 │ └── http-time-calc.png
 └── Files/
 └── Project-02-HTTP Traffic Analysis Using Wireshark.pdf
-
+```
 ---
 
 ## Files Included
 - **PDF:** Original lab report (`Files/Project-02-HTTP Traffic Analysis Using Wireshark.pdf`)  
 - **Screenshots:** Extracted from lab implementation for visual explanation  
 - **README:** Professional write-up summarizing the project
-
 ---
-
 ## Conclusion
 This Wireshark lab provided in-depth experience with packet capture and protocol analysis.  
 By examining HTTP traffic at multiple layers, we strengthened our understanding of how web requests travel across the network and how Wireshark can be used to troubleshoot, analyze, and validate network behavior.
