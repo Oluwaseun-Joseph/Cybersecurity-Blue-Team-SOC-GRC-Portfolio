@@ -1,269 +1,217 @@
-# Project 04 – Wireshark 802.11 Wireless Analysis (Beacon, Authentication, Association & Roaming)
+# Project 04 – Wireshark 802.11 Wireless Analysis  
+**Beacon Frames, Authentication, Association & Roaming Behavior**
 
 ## Overview
-This project analyzes **real Wi-Fi (802.11) wireless traffic** captured from a home network.  
-Unlike wired Ethernet captures, this analysis reveals how Wi-Fi devices:
+This project presents a **deep analysis of real IEEE 802.11 wireless traffic** captured from a production home Wi-Fi environment. Unlike wired Ethernet analysis, this investigation focuses on **Layer-2 wireless behavior**, including how devices discover access points, authenticate, associate, roam, and recover from failed connection attempts.
 
-- Discover access points  
-- Interpret beacon frames  
-- Authenticate & associate  
-- Exchange MAC-layer control frames  
-- Send data over wireless  
-- Roam between access points  
-- Attempt connections that fail  
+Using **Wireshark’s 802.11 protocol dissection**, the project analyzes management, control, and data frames to reconstruct the full lifecycle of a wireless client interacting with multiple access points.
 
-Using **Wireshark’s 802.11 dissection**, this project examines management, control, and data frames to understand real wireless behavior in production environments.
+This analysis mirrors real-world **wireless troubleshooting, SOC investigations, and network forensics** scenarios.
 
 ---
 
-## Lab Environment
+## Analysis Environment
 - **Tool:** Wireshark  
-- **Traffic Source:** Provided `Wireshark_802_11.pcap` capture  
-- **Standard:** IEEE 802.11g  
-- **APs observed:**  
+- **Capture File:** `Wireshark_802_11.pcap`  
+- **Wireless Standard:** IEEE 802.11g  
+- **Observed Access Points:**  
   - `30 Munroe St`  
   - `linksys_ses_24086`  
-- **Host MAC:** `00:13:02:d1:b6:4f`  
-- **AP MAC:** `00:16:b6:f7:1d:51`  
+- **Wireless Host (STA) MAC:** `00:13:02:d1:b6:4f`  
+- **Primary AP (BSSID):** `00:16:b6:f7:1d:51`  
 
 ---
 
-## Objectives
-1. Identify SSIDs and beacon frame properties  
-2. Extract BSSID, supported speeds, and MAC roles  
-3. Analyze SYN/SYN-ACK TCP traffic inside 802.11 frames  
-4. Understand disassociation, deauthentication, and DHCP release events  
-5. Follow an AP-roaming attempt and failure  
-6. Analyze authentication and association sequences  
+## Analysis Objectives
+- Identify nearby wireless networks via beacon frame analysis  
+- Extract BSSID, MAC roles, and supported transmission rates  
+- Observe TCP traffic encapsulated within 802.11 frames  
+- Analyze deauthentication, DHCP release, and roaming behavior  
+- Evaluate failed and successful authentication/association attempts  
+- Reconstruct wireless recovery after a roaming failure  
 
 ---
 
-## Implementation & Screenshots
+## Investigation Walkthrough & Evidence
 
-### **1. Opening the 802.11 Packet Capture**
-Initial Wireshark view showing all wireless beacon, management, and data frames.  
-📌 Screenshot: `Screenshots/wifi-startup.png`
+### Initial Capture Review
+The packet capture contains beacon frames, management traffic, and data frames from multiple access points operating on the same channel. This provides visibility into both **intended** and **incidental** wireless traffic.
 
-### **2. HTTP Requests Over Wireless**
-The host performs two HTTP GET requests at:  
+📁 Evidence: `Screenshots/wifi-startup.png`
+
+---
+
+### Wireless Data Traffic over 802.11
+The wireless host initiates two outbound HTTP requests over the Wi-Fi connection:
+
 - **24.82s** → `http://gaia.cs.umass.edu/.../alice.txt`  
-- **32.82s** → `http://www.cs.umass.edu`  
+- **32.82s** → `http://www.cs.umass.edu`
 
-📌 Screenshots:  
-`Screenshots/http-request-1.png`  
-`Screenshots/http-request-2.png`
+These requests confirm successful data transmission over the wireless link prior to roaming activity.
 
-### **3. Roaming Attempt**
-At **49.58s**, the host disconnects from `30 Munroe St` and tries connecting to `linksys_ses_24086` unsuccessfully.
-
-📌 Screenshots:  
-`Screenshots/roam-attempt.png`  
-`Screenshots/failed-association.png`
-
-### **4. Reconnecting Successfully**
-At **63.0s**, the host re-associates with `30 Munroe St`.
-
-📌 Screenshot:  
-`Screenshots/reassociate-success.png`
+📁 Evidence:  
+- `Screenshots/http-request-1.png`  
+- `Screenshots/http-request-2.png`
 
 ---
 
-# 🔎 Part 1 — Beacon Frame Analysis
+## 📡 Beacon Frame & Network Discovery Analysis
 
-### **Q1. SSIDs Observed**
-From page 5 of the report:  
-- `30 Munroe St`  
-- `linksys_ses_24086`  
-📌 Screenshot: `Screenshots/ssid-list.png`
+### Wireless Networks Observed
+Beacon frame analysis revealed two access points advertising most frequently during the capture:
 
-### **Q2. Beacon Interval**
-Both APs broadcast beacons at **0.1024 seconds**.  
-📌 Screenshots:  
-`Screenshots/beacon-interval-linksys.png`  
-`Screenshots/beacon-interval-munroe.png`
+- **30 Munroe St**  
+- **linksys_ses_24086**
 
-### **Q3. Source MAC of 30 Munroe St**
-From page 7:  
-- **Source MAC:** `00:16:b6:f7:1d:51`  
-📌 Screenshot: `Screenshots/source-mac.png`
+These SSIDs were identified by filtering beacon frames  
+(`wlan.fc.type_subtype == 0x08`) and inspecting the SSID parameters.
 
-### **Q4. Destination MAC in Beacon**
-Always broadcast:  
-`ff:ff:ff:ff:ff:ff`  
-📌 Screenshot: `Screenshots/broadcast-dest.png`
-
-### **Q5. BSSID**
-- **BSSID:** `00:16:b6:f7:1d:51`  
-📌 Screenshot: `Screenshots/bssid.png`
-
-### **Q6. Supported Data Rates**
-Standard rates: **1, 2, 5.5, 11 Mbps**  
-Extended rates: **6–54 Mbps**  
-📌 Screenshot: `Screenshots/supported-rates.png`
+📁 Evidence: `Screenshots/ssid-list.png`
 
 ---
 
-# 🛰️ Part 2 — MAC Address Roles & TCP Frames
+### Beacon Interval Behavior
+Both access points broadcast beacon frames at a consistent interval of approximately **0.1024 seconds**, indicating standard beacon timing behavior.
 
-### **Q7. MAC Addresses in 802.11 Frames**
-From pages 10–13:
+📁 Evidence:  
+- `Screenshots/beacon-interval-linksys.png`  
+- `Screenshots/beacon-interval-munroe.png`
+
+---
+
+### BSSID & MAC Addressing
+- **Beacon Source MAC / BSSID:** `00:16:b6:f7:1d:51`  
+- **Beacon Destination MAC:** `ff:ff:ff:ff:ff:ff` (broadcast)
+
+This confirms normal access point advertisement behavior.
+
+📁 Evidence:  
+- `Screenshots/source-mac.png`  
+- `Screenshots/broadcast-dest.png`  
+- `Screenshots/bssid.png`
+
+---
+
+### Supported Transmission Rates
+The access point advertises:
+
+- **Standard rates:** 1, 2, 5.5, 11 Mbps  
+- **Extended rates:** 6–54 Mbps  
+
+This reflects backward compatibility with legacy clients while supporting higher throughput.
+
+📁 Evidence: `Screenshots/supported-rates.png`
+
+---
+
+## 🛰️ MAC Roles & TCP over 802.11
+
+802.11 frames encapsulating TCP traffic reveal distinct MAC roles:
 
 | Role | Address |
-|------|---------|
-| Destination MAC | `00:16:b6:f4:eb:a8` |
-| Source MAC | `00:13:02:d1:b6:4f` |
-| BSSID | `00:16:b6:f7:1d:51` |
-| First-hop router | `00:16:b6:f4:eb:a8` |
-| Wireless host MAC | `00:13:02:d1:b6:4f` |
+|---|---|
+| Wireless Host (STA) | `00:13:02:d1:b6:4f` |
+| Access Point (BSSID) | `00:16:b6:f7:1d:51` |
+| First-Hop Router | `00:16:b6:f4:eb:a8` |
 | Host IP | `192.168.1.109` |
 | Destination IP | `128.119.245.12` |
 
-📌 Screenshots (Figures 12a–12f):  
-`Screenshots/mac-roles-1.png`  
-`Screenshots/mac-roles-2.png`  
-`Screenshots/mac-roles-3.png`  
+This demonstrates **Layer-2 forwarding over wireless** with Layer-3 routing beyond the access point.
+
+📁 Evidence:  
+- `Screenshots/mac-roles-1.png`  
+- `Screenshots/mac-roles-2.png`  
+- `Screenshots/mac-roles-3.png`
 
 ---
 
-# 🔁 Part 3 — SYN/ACK Wireless Frame Breakdown
+## 🔁 SYN/ACK Analysis over Wireless
 
-### **Q8. SYN/ACK Three MAC Fields**
-From page 14–16:
+A TCP SYN/ACK frame carried within 802.11 contains three MAC addresses:
 
-- Receiver MAC = Destination = `00:13:02:d1:b6:4f`  
-- Source MAC = `00:16:b6:f4:eb:a8`  
-- Transmitter/BSSID = `00:16:b6:f7:1d:51`
+- **Receiver (Destination):** Wireless host  
+- **Source:** First-hop router  
+- **Transmitter / BSSID:** Access point  
 
-📌 Screenshots:  
-`Screenshots/synack-mac-analysis.png`
+This highlights the distinction between **IP endpoints** and **wireless hop MAC roles**.
 
----
-
-# 🔌 Part 4 — Disconnection & Deauthentication
-
-### **Q9. Host Performs DHCP Release + Deauth**
-At **49.58s**, host ends session:
-
-1. **DHCP Release** (IP layer)  
-2. **802.11 Deauthentication frame** (MAC layer)  
-
-📌 Screenshots:  
-`Screenshots/dhcp-release.png`  
-`Screenshots/deauth-frame.png`
-
-It finds **no disassociation frames**, confirming only deauth was sent.  
-📌 `Screenshots/no-disassoc.png`
+📁 Evidence: `Screenshots/synack-mac-analysis.png`
 
 ---
 
-# 🔐 Part 5 — Authentication Attempts
+## 🔌 Disconnection & Roaming Attempt
 
-### **Q10. Authentication Attempts to linkys_ses_24086**
-From page 20:
+At **49.58s**, the host intentionally disconnects from `30 Munroe St` by:
 
-- **Six authentication frames sent** by host  
-- Using filter:  
-wlan.fc.type == 0 && wlan.fc.subtype == 11 && wlan.addr == 00:13:02:d1:b6:4f
+1. Sending a **DHCP Release** (IP layer)  
+2. Transmitting an **802.11 Deauthentication frame** (MAC layer)  
 
-yaml
-Copy code
+No disassociation frames were observed, indicating deauthentication alone was used.
 
-📌 Screenshot: `Screenshots/auth-attempts.png`
-
-### **Q11. Key Requirement**
-The host uses **Open System Authentication**, requiring no key.  
-📌 Screenshot: `Screenshots/open-auth.png`
-
-### **Q12. Missing AP Response**
-The AP did **not** send Authentication SEQ=2.  
-📌 Screenshot: `Screenshots/no-auth-response.png`
+📁 Evidence:  
+- `Screenshots/dhcp-release.png`  
+- `Screenshots/deauth-frame.png`  
+- `Screenshots/no-disassoc.png`
 
 ---
 
-# 🔄 Part 6 — Successful Reconnection & Association
+## 🔐 Authentication Failure & Recovery
 
-### **Q13: Failed Authentication to one AP; Success with another**
-- Host attempted with MAC `f5:ba:bb` (failed)  
-- Later associated with `00:16:b6:f7:1d:51` at **63.169s**
+The host attempts to authenticate with `linksys_ses_24086`:
 
-📌 Screenshots:  
-`Screenshots/failed-auth.png`  
-`Screenshots/successful-auth.png`
+- **Six authentication frames** sent  
+- **Open System Authentication** (no key required)  
+- **No SEQ=2 response** received from the AP  
 
-### **Q14: Association Frames**
-Sequence captured in Frames **2162** and **2166**:
+The host subsequently abandons this attempt.
 
-- Association Request  
-- Association Response  
-
-📌 Screenshots:  
-`Screenshots/assoc-request.png`  
-`Screenshots/assoc-response.png`
-
-### **Q15: Transmission Rates Willing to Use**
-Host: 1, 2, 5.5, 11 Mbps  
-AP: 1–54 Mbps  
-📌 Screenshot: `Screenshots/host-rates.png`
+📁 Evidence:  
+- `Screenshots/auth-attempts.png`  
+- `Screenshots/open-auth.png`  
+- `Screenshots/no-auth-response.png`
 
 ---
 
-# 🎯 Conclusion
-This project provides a full wireless-protocol analysis at Layer 2 (802.11), demonstrating:
+## 🔄 Successful Reassociation
 
-- Beacon frame interpretation  
-- MAC-layer addressing roles  
-- Authentication & association mechanics  
-- DHCP release + deauthentication  
-- Wireless roaming failure & recovery  
-- TCP encapsulation inside 802.11  
+At **63.169s**, the host successfully authenticates and associates with  
+`30 Munroe St`, completing the wireless recovery process.
 
-By analyzing these real wireless frames, we build practical skills in:
-
-✔ Wireless forensics  
-✔ WiFi troubleshooting  
-✔ MAC-layer analysis  
-✔ Network security monitoring  
-✔ Understanding roaming behavior  
-
-This project strengthens capability for **SOC Analyst**, **Network Security**, and **Wireless Security** roles.
+📁 Evidence:  
+- `Screenshots/failed-auth.png`  
+- `Screenshots/successful-auth.png`  
+- `Screenshots/assoc-request.png`  
+- `Screenshots/assoc-response.png`
 
 ---
 
-# 📂 Repository Structure
+## 🎯 Conclusion
+This project demonstrates a **complete end-to-end 802.11 wireless analysis**, including:
 
+- Beacon-based network discovery  
+- MAC-layer addressing and roles  
+- TCP encapsulation over wireless  
+- Deauthentication and DHCP release  
+- Failed roaming attempts  
+- Successful reassociation and recovery  
+
+The analysis reflects real-world **wireless troubleshooting, SOC monitoring, and network forensics** tasks and builds practical capability in:
+
+- Wireless security analysis  
+- Wi-Fi troubleshooting  
+- Layer-2 protocol inspection  
+- Roaming behavior interpretation  
+- Incident reconstruction  
+
+---
+
+## 📂 Repository Structure
+```
 Project-04-Wireshark-802.11-Wireless-Analysis/
-
-├── README.md
-├── Report/
+├── Files/
 │   └── Wireshark-80211-Wireless-Analysis-Report.pdf
 ├── Screenshots/
-│   ├── wifi-startup.png
-│   ├── http-request-1.png
-│   ├── http-request-2.png
-│   ├── roam-attempt.png
-│   ├── failed-association.png
-│   ├── reassociate-success.png
-│   ├── ssid-list.png
-│   ├── beacon-interval-linksys.png
-│   ├── beacon-interval-munroe.png
-│   ├── source-mac.png
-│   ├── broadcast-dest.png
-│   ├── bssid.png
-│   ├── supported-rates.png
-│   ├── mac-roles-1.png
-│   ├── mac-roles-2.png
-│   ├── mac-roles-3.png
-│   ├── synack-mac-analysis.png
-│   ├── dhcp-release.png
-│   ├── deauth-frame.png
-│   ├── no-disassoc.png
-│   ├── auth-attempts.png
-│   ├── open-auth.png
-│   ├── no-auth-response.png
-│   ├── failed-auth.png
-│   ├── successful-auth.png
-│   ├── assoc-request.png
-│   ├── assoc-response.png
-│   └── host-rates.png
-└── Raw_Logs/
-    └── Wireshark_802_11.pcap
+├── Raw_Logs/
+│   └── Wireshark_802_11.pcap
+└── README.md
+```
