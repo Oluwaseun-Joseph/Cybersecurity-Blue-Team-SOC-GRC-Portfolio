@@ -44,7 +44,7 @@ Shows available network interfaces.
 
 ### **2. Interface Selection**
 Wi-Fi selected for capturing packets.  
-📌 *Screenshot required:*  
+![Overall Scan](Screenshots/wireshark-interfaces.png)
 `Screenshots/wireshark-interfaces.png`
 
 ### **3. Capturing Live Packets**
