@@ -1,26 +1,26 @@
 # Risk Methodology
 
 ## Purpose
-This document outlines the risk evaluation methodology used to support the Risk Management Dashboard. The methodology is designed to ensure consistency, transparency, and alignment with common enterprise risk management practices.
+This document describes the risk evaluation methodology I used to support the Risk Management Dashboard. My objective was to apply a structured, repeatable approach that aligns with common enterprise risk management practices while remaining flexible across different organizational contexts.
 
 ---
 
 ## Risk Evaluation Approach
-Risks are evaluated using two primary dimensions:
+I evaluate risks using two primary dimensions: likelihood and impact. This approach supports consistent prioritization and clear communication of risk posture.
 
 ### Likelihood
-Likelihood represents the probability that a risk event will occur within the defined context. Ratings are applied using a qualitative scale:
+Likelihood represents the probability that a risk event may occur within the assessed environment. I apply a qualitative scale:
 
 - Low  
 - Medium  
 - High  
 
-Likelihood assessments consider historical trends, control effectiveness, and environmental factors.
+Likelihood assessments are informed by contextual factors such as historical trends, control maturity, and operating conditions.
 
 ---
 
 ### Impact
-Impact represents the potential severity of consequences should a risk materialize. Impact considerations may include:
+Impact represents the potential severity of consequences if a risk materializes. When assessing impact, I consider factors such as:
 
 - Financial loss  
 - Operational disruption  
@@ -30,23 +30,23 @@ Impact represents the potential severity of consequences should a risk materiali
 ---
 
 ## Risk Rating Determination
-Overall risk ratings are derived by combining likelihood and impact values to support prioritization and decision-making. This approach enables clear differentiation between high-priority risks and those requiring routine monitoring.
+I derive overall risk ratings by combining likelihood and impact values. This enables clear differentiation between risks that require immediate attention and those suitable for routine monitoring.
 
 ---
 
 ## Dashboard Integration
-The dashboard leverages calculated risk ratings to:
+The dashboard applies calculated risk ratings to:
 - Highlight risks requiring management attention  
 - Support prioritization and escalation discussions  
-- Enable consistent risk reporting across stakeholders  
+- Enable consistent reporting across stakeholders  
 
 ---
 
 ## Framework Alignment
-This methodology aligns conceptually with widely adopted risk management standards, including:
+The methodology I applied aligns conceptually with widely adopted risk management standards, including:
 
 - NIST SP 800-30 (Risk Assessment)  
 - ISO/IEC 27005 (Information Security Risk Management)  
 - COSO Enterprise Risk Management principles  
 
-The methodology is adaptable and can be tailored to different organizational risk contexts.
+This approach is designed to be adaptable and scalable across different organizational environments.
