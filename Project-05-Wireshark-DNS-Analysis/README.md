@@ -99,7 +99,7 @@ This project provided hands-on experience with DNS resolution, caching behavior,
 
 ## Repository Structure
 ```
-Project-04-Wireshark-DNS-Analysis/
+Project-05-Wireshark-DNS-Analysis/
 ├── README.md
 ├── Screenshots/
 └── Files/
