@@ -9,9 +9,9 @@ This document presents a representative risk register structure that complements
 
 | Risk ID | Risk Description | Likelihood | Impact | Risk Rating | Mitigation Strategy | Risk Owner |
 |--------|------------------|------------|--------|-------------|---------------------|------------|
-| R- 001 | Unauthorized access to sensitive data | High | High | High | Implement MFA and access reviews | IT Security |
-| R- 002 | Outdated system patches | Medium | High | Medium | Patch management program | IT Operations |
-| R- 003 | Third-party vendor risk | Medium | Medium | Medium | Vendor risk assessments | Compliance |
+| R001 | Unauthorized access to sensitive data | High | High | High | Implement MFA and access reviews | IT Security |
+| R002 | Outdated system patches | Medium | High | Medium | Patch management program | IT Operations |
+| R003 | Third-party vendor risk | Medium | Medium | Medium | Vendor risk assessments | Compliance |
 
 ---
 
