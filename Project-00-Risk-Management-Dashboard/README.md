@@ -1,7 +1,7 @@
 # Project 00 – Risk Management Dashboard
 
 ## Overview
-This project presents a **risk management and visualization project** centered on
+This project I present a **risk management and visualization project** centered on
 an Excel-based dashboard designed to support risk identification, prioritization, and
 decision-making.
 
