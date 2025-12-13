@@ -1,44 +1,38 @@
-# Project 00 – Risk Management Dashboard
+ Project 01 – Risk Management Dashboard
 
 ## Overview
-This project I present a **risk management and visualization project** centered on
-an Excel-based dashboard designed to support risk identification, prioritization, and
-decision-making.
+This project delivers a **risk management dashboard** designed to support structured risk identification, prioritization, and decision-making. The dashboard consolidates risk data into a clear visual format that enables stakeholders to quickly assess risk exposure, severity distribution, and areas requiring mitigation or escalation.
 
-The dashboard aggregates risk data and presents it in a structured, visual format to
-help stakeholders quickly understand risk exposure, severity distribution, and areas
-requiring mitigation or escalation.
-
-This project reflects real-world **GRC and risk analyst workflows**, where dashboards are
-often delivered as primary artifacts without accompanying screenshots or formal PDF
-reports.
+The project emphasizes how risk information is translated into actionable insights for governance, risk, and compliance (GRC) environments.
 
 ---
 
 ## Objectives
-- Visualize organizational risk exposure in a single dashboard
-- Support risk-based decision-making using severity and impact indicators
-- Demonstrate understanding of risk scoring and prioritization
-- Align dashboard logic with common risk management practices
+- Present organizational risk exposure through a centralized dashboard
+- Enable risk-based decision-making using severity and impact indicators
+- Demonstrate practical application of risk scoring and prioritization
+- Align dashboard logic with common enterprise risk management practices
 
 ---
 
-## Primary Artifact
-The core deliverable for this project is the Excel dashboard located in:
+## Primary Deliverable
+The primary deliverable for this project is an Excel-based risk dashboard:
 
 Files/Risk-Analysis-Dashboard.xlsx
 
-In many risk and GRC roles, Excel dashboards serve as the **final operational deliverable**
-used by analysts, managers, and auditors.
+
+The dashboard is designed for direct use by analysts and stakeholders to review risk posture, monitor trends, and support escalation or remediation decisions.
 
 ---
 
 ## Risk Methodology (Summary)
-Risk scoring follows a qualitative-to-semi-quantitative approach based on:
+Risk scoring follows a structured qualitative-to-semi-quantitative approach based on:
 
-- Likelihood of occurrence
-- Impact severity
-- Overall risk rating derived from these factors
+- Likelihood of occurrence  
+- Impact severity  
+- An overall risk rating derived from these factors  
+
+This approach supports consistent risk evaluation while remaining adaptable across different organizational contexts.
 
 Detailed methodology documentation is available in:
 
@@ -47,32 +41,31 @@ Docs/Risk-Methodology.md
 ---
 
 ## Supporting Documentation
-This repository includes additional documentation to ensure transparency and
-professional completeness:
+This repository includes supporting documentation to ensure clarity, traceability, and governance alignment, including:
 
-- **Risk methodology explanation**
-- **Sample risk register structure**
-- **Assumptions and limitations**
+- Risk methodology documentation  
+- Sample risk register structure  
+- Documented assumptions and limitations  
 
-These materials reflect standard governance and audit expectations.
+These materials reflect standard expectations in enterprise risk management and internal audit environments.
 
 ---
 
 ## Intended Audience
-- GRC Analysts
-- Risk Analysts
-- Compliance Analysts
-- Internal Audit Teams
-- Security & IT Governance Stakeholders
+- GRC Analysts  
+- Risk Analysts  
+- Compliance Analysts  
+- Internal Audit Teams  
+- Security and IT Governance stakeholders  
 
 ---
 
 ## Key Skills Demonstrated
-- Risk analysis and prioritization
-- Dashboard-driven decision support
-- Governance documentation
-- Risk communication
-- Analytical thinking aligned with GRC practices
+- Risk analysis and prioritization  
+- Dashboard-driven decision support  
+- Governance and risk documentation  
+- Risk communication for stakeholders  
+- Analytical thinking aligned with GRC practices  
 
 ---
 
@@ -85,7 +78,3 @@ Project-01-Risk-Management-Dashboard/
 │ ├── Risk-Methodology.md
 │ ├── Risk-Register-Sample.md
 │ └── Assumptions-and-Limitations.md
-└── Evidence/
-└── README.md
-
-
