@@ -8,6 +8,8 @@ Using **Wireshark’s 802.11 protocol dissection**, the project analyzes managem
 
 This analysis mirrors real-world **wireless troubleshooting, SOC investigations, and network forensics** scenarios.
 
+> 📌 **Screenshot Reference:**  
+> All screenshots referenced below are stored in the `/Screenshots` directory and use descriptive filenames for clarity and traceability.
 ---
 
 ## Analysis Environment
