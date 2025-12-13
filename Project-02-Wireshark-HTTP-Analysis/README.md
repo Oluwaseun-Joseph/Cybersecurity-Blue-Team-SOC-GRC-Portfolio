@@ -12,8 +12,7 @@ The lab focuses on:
 - Extracting IP addresses, ports, and browser metadata  
 
 _All analysis and screenshots were performed on a Windows 10 system using Wi-Fi as the capture interface._
-> 📌 **Screenshot Reference:**  
-> All screenshots referenced below are stored in the `/Screenshots` directory and use descriptive filenames for clarity and traceability.
+
 ---
 
 ## Lab Environment
