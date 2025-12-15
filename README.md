@@ -64,7 +64,7 @@ supports higher-layer communications and how it is analyzed in SOC investigation
 
 ---
 
-## 🧭 Portfolio Focus
+## Portfolio Focus
 This portfolio is designed to reflect **real-world Blue Team, SOC, and GRC workflows**,
 emphasizing both **technical depth** and the ability to **translate findings into risk and
 business context**.
