@@ -1,4 +1,4 @@
-# Project 05 – Wireshark DNS Analysis: Resolution Flow, Caching & Packet Forensics
+# Project 06 – Wireshark DNS Analysis: Resolution Flow, Caching & Packet Forensics
 
 ## Overview
 In this project, I analyzed Domain Name System (DNS) behavior by combining `nslookup` diagnostics with packet-level inspection in Wireshark. I focused on how DNS queries are generated, how responses are returned, how caching affects resolution, and how DNS directly enables HTTP and HTTPS connections.
@@ -99,7 +99,7 @@ This project provided hands-on experience with DNS resolution, caching behavior,
 
 ## Repository Structure
 ```
-Project-05-Wireshark-DNS-Analysis/
+Project-06-Wireshark-DNS-Analysis/
 ├── README.md
 ├── Screenshots/
 └── Files/
