@@ -52,9 +52,12 @@ how mitigation strategies reduce overall risk levels.
 ### Risk by Category
 ![Risk by Category](Screenshots/Risk_By_Category.png)
 
-This visualization groups risks by category (e.g., Cybersecurity, Operational, Compliance),
-helping leadership understand **which domains contribute most** to enterprise risk.
+This visualization presents risk exposure grouped by **risk domain**, including
+Confidentiality, Access Control, Availability, Malware, and Social Engineering.
 
+By aggregating inherent risk scores across these categories, the chart helps
+leadership identify **which risk domains contribute most to overall enterprise
+risk** and where mitigation or control improvements should be prioritized.
 ---
 
 ## Dashboard File
