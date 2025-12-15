@@ -56,9 +56,9 @@ This visualization presents risk exposure grouped by **risk domain**, including
 Confidentiality, Access Control, Availability, Malware, and Social Engineering.
 
 By aggregating inherent risk scores across these categories, the chart helps
-leadership identify **which risk domains contribute most to overall enterprise
-risk** and where mitigation or control improvements should be prioritized.
----
+leadership identify which risk domains contribute most to overall enterprise
+risk and where mitigation or control improvements should be prioritized.
+
 
 ## Dashboard File
 - **Location:** `Dashboard/Risk_Dashboard.xlsx`
