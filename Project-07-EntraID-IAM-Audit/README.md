@@ -1,68 +1,61 @@
-# Project 07 – Microsoft Entra ID IAM Audit
+# Project 07 — Microsoft Entra ID IAM Audit (Privileged Access Review)
 
-## Overview
-This project documents a hands-on **Identity and Access Management (IAM) audit**
-conducted in a Microsoft Entra ID tenant to evaluate **privileged access controls,
-role assignments, and governance limitations**.
+## Why this project matters
+This project demonstrates how an IAM/GRC analyst performs a **privileged access review** in Microsoft Entra ID:
+- verifies administrative role assignments,
+- validates a break-glass account,
+- designs RBAC using groups,
+- exports role assignment evidence,
+- and documents governance constraints as formal audit findings.
 
-The audit focuses on:
-- Global Administrator exposure
-- Break-glass account validation
-- Role-based access via security groups
-- Identification of Entra ID Free licensing constraints
-
-The project mirrors how IAM and GRC teams perform **access reviews, risk identification,
-and evidence-backed reporting** in real enterprise environments.
+This mirrors real environments where security controls may be limited by **licensing or tenant configuration**, requiring **evidence-backed risk documentation** and compensating controls.
 
 ---
 
-## Audit Objectives
-- Validate Global Administrator assignments
-- Review privileged account exposure
-- Assess role-based access control (RBAC) design
-- Identify governance and licensing limitations
-- Document risks and remediation recommendations
+## What I did (high-level)
+- Confirmed audit scope in a personal Entra ID tenant (Figure 1)
+- Created a controlled lab environment (Figures 2–3)
+- Verified break-glass administrative access (Figure 4)
+- Reviewed Global Administrator exposure (Figure 5 + CSV export)
+- Created workforce test users and RBAC groups (Figures 6–8)
+- Attempted group-based directory role assignment and documented Entra ID Free limitation (Figure 9)
+- Produced an audit-style report with evidence references and an evidence index
 
 ---
 
-## Environment
-- Identity Platform: Microsoft Entra ID
-- Tenant Type: Entra ID Free
-- Users: Admin, Developer, Helpdesk, Security Analyst
-- Groups: Cloud-Admins, IT-Helpdesk
+## Key finding (industry-realistic)
+**Group-based directory role assignment was not available** due to Microsoft Entra ID Free licensing.
+Instead of fabricating results, the project documents:
+- observed limitation (Figure 9),
+- risk impact (privilege sprawl risk),
+- and remediation (upgrade to Entra ID P1/P2 + compensating controls).
 
 ---
 
-## Key Findings (High-Level)
-- Multiple Global Administrators identified
-- Break-glass account properly configured
-- RBAC intent designed using security groups
-- **Group-based role assignment unavailable due to Entra ID Free licensing**
-- Governance limitation documented with evidence
+## Files included
+- `Files/GlobalAdmin_Assignments.csv` — primary evidence export of Global Administrator assignments
+- `Files/IAM_Audit_Report.pdf` — final audit report (you can generate from the included content)
+- `Docs/Evidence_Index.md` — maps every figure to file paths
+- `Evidence/` — before/after screenshots supporting the audit trail
 
 ---
 
-## Evidence
-All screenshots and exports are indexed in:
-📄 `Docs/Evidence_Index.md`
+## Evidence map
+See: `Docs/Evidence_Index.md`
 
 ---
 
-## Outcome
-Although role assignment to groups could not be enforced due to licensing,
-the audit successfully:
-- Identified privilege risks
-- Documented governance gaps
-- Produced defensible audit evidence
-- Provided remediation guidance aligned with best practices
-
----
-
-## Skills Demonstrated
-- IAM auditing
-- Privileged access review
+## Skills demonstrated
+- IAM auditing and privileged access review
 - Microsoft Entra ID administration
-- Risk documentation
-- Evidence-based reporting
-- GRC-aligned analysis
+- Role assignment evidence export and traceability
+- RBAC design (groups + membership baselining)
+- Audit-style findings and remediation writing
+- Governance awareness (licensing constraints + compensating controls)
 
+---
+
+## Notes for reviewers
+This project intentionally follows an enterprise audit approach:
+- The report references evidence by figure number.
+- Screenshots and exports are stored separately for traceability.
