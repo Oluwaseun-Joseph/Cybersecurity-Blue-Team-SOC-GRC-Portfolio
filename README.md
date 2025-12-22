@@ -24,7 +24,7 @@ that reflects how security teams operate in real environments.
 - **[Project 04 – Wireshark 802.11 Wireless Analysis](https://github.com/Oluwaseun-Joseph/Cybersecurity-Blue-Team-SOC-GRC-Portfolio/tree/main/Project-04-Wireshark-802.11-Wireless-Analysis)**  
   Wireless authentication, roaming, and Layer-2 forensic analysis.
 
-- **[Project 05 – GRC Risk Management Dashboard](https://github.com/Oluwaseun-Joseph/Cybersecurity-Blue-Team-SOC-GRC-Portfolio/tree/main/Project-05-GRC-Risk-Management-Dashboard)**  
+- **[Project 05 – GRC Risk Management Dashboard](https://github.com/Oluwaseun-Joseph/Cybersecurity-Blue-Team-SOC-GRC-Portfolio/tree/main/Project-05-GRC_Risk_Management_Dashboard)**  
   Excel-based enterprise risk dashboard for inherent vs. residual risk reporting.
 
 - **[Project 06 – Wireshark DNS Analysis](https://github.com/Oluwaseun-Joseph/Cybersecurity-Blue-Team-SOC-GRC-Portfolio/tree/main/Project-06-Wireshark-DNS-Analysis)**  
