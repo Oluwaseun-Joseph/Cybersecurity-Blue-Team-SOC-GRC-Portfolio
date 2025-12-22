@@ -58,4 +58,4 @@ that reflects how security teams operate in real environments.
 
 <h2>🤳 Connect with Me</h2>
 
-[LinkedIn](https://www.linkedin.com/in/oluwaseunjosephcyber) • GitHub: Oluwaseun-Joseph
+[LinkedIn](https://www.linkedin.com/in/oluwaseunjosephcyber) • [GitHub: Oluwaseun-Joseph](https://github.com/Oluwaseun-Joseph)
