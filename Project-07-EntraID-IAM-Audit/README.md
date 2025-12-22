@@ -61,7 +61,7 @@ This project intentionally follows an enterprise audit approach:
 - Screenshots and exports are stored separately for traceability.
 
 ## Repository Structure
-'''
+```
 - Project-07-EntraID-IAM-Audit/
 ├── Docs/
 ├── Evidence/
@@ -70,4 +70,4 @@ This project intentionally follows an enterprise audit approach:
 │   └── After/
 │       └── Screenshots/
 └── Files/
-'''
+```
