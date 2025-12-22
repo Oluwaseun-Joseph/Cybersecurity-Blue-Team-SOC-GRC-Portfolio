@@ -63,11 +63,19 @@ This project intentionally follows an enterprise audit approach:
 ## Repository Structure
 ```
 - Project-07-EntraID-IAM-Audit/
+├── README.md
 ├── Docs/
+│   ├── Audit_Scope_and_Method.md
+│   ├── Evidence_Index.md
+│   ├── Findings_and_Remediation.md
+│   └── Lessons_Learned.md
 ├── Evidence/
 │   ├── Before/
 │   │   └── Screenshots/
 │   └── After/
 │       └── Screenshots/
-└── Files/
+├── Files/
+│   
+│   ├── RoleAssignments.csv
+│   └── IAM_Audit_Report.pdf
 ```
