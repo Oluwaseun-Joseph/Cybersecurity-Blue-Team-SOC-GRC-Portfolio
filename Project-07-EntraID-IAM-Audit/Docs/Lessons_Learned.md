@@ -1,0 +1,4 @@
+- IAM audits must account for licensing constraints
+- Governance includes documenting what cannot be enforced
+- Evidence-backed reporting is critical for risk acceptance
+- Security design intent must be recorded even when implementation is blocked
