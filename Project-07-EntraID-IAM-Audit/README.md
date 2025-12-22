@@ -76,6 +76,6 @@ This project intentionally follows an enterprise audit approach:
 │       └── Screenshots/
 ├── Files/
 │   
-│   ├── RoleAssignments.csv
+│   ├── GlobalAdmin_Assignments.csv
 │   └── IAM_Audit_Report.pdf
 ```
