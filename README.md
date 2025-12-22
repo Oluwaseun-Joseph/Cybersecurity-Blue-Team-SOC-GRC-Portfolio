@@ -1,73 +1,103 @@
 # Cybersecurity Blue Team | SOC & GRC Portfolio
 
-This repository contains a curated collection of **hands-on cybersecurity projects**
-focused on **Blue Team operations, network and wireless traffic analysis, vulnerability
-assessment, and governance, risk, and compliance (GRC)**.
+This repository contains a structured collection of hands-on cybersecurity projects
+developed to reflect **real-world Blue Team, SOC, IAM, and GRC workflows**.
 
-The projects demonstrate practical experience with industry-standard tools such as
-**Nessus, Wireshark, and Excel-based risk dashboards**, as well as the ability to translate
-technical findings into **risk-informed decision support**.
+The portfolio focuses on practical security analysis, protocol-level investigation,
+vulnerability assessment, identity and access management, and risk documentation.
+Each project is documented to show not only *what was done*, but *why it matters* from
+a security, governance, and business perspective.
+
+The work emphasizes accuracy, evidence-based analysis, and clear documentation rather
+than tool output alone.
 
 ---
 
 ## 📁 Projects Included
 
 ### **Project 01 – Nessus VM Credentialed Vulnerability Assessment**
-A comprehensive vulnerability assessment of a virtual machine using **credentialed
-Nessus scanning**. The project identifies critical, high, and medium vulnerabilities and
-provides remediation insights aligned with real-world vulnerability management practices.
+A credentialed vulnerability assessment performed against a virtual machine using
+Nessus. The project reviews critical, high, and medium findings, evaluates risk impact,
+and documents remediation priorities consistent with vulnerability management practices
+used in enterprise environments.
 
 ---
 
 ### **Project 02 – Wireshark HTTP Traffic Analysis**
-An analysis of HTTP traffic using Wireshark to examine request/response behavior,
-packet structure, and timing characteristics. This project focuses on understanding
-application-layer communication from a defensive and forensic perspective.
+An HTTP traffic analysis conducted in Wireshark to examine request and response behavior,
+headers, timing, and application-layer communication patterns. The project focuses on
+how HTTP traffic is inspected during security investigations and troubleshooting.
 
 ---
 
 ### **Project 03 – Wireshark TCP Analysis**
-A detailed investigation of **TCP behavior**, including connection establishment,
-segmentation, acknowledgments, and retransmissions. The project demonstrates
-foundational network analysis skills essential for SOC and incident response roles.
+A detailed review of TCP behavior, including three-way handshake, segmentation,
+acknowledgments, retransmissions, and connection teardown. This project reinforces core
+network analysis skills commonly required in SOC and incident response roles.
 
 ---
 
 ### **Project 04 – Wireshark 802.11 Wireless Analysis**
-An in-depth analysis of **IEEE 802.11 wireless traffic**, covering beacon frames,
-authentication, association, roaming attempts, deauthentication, and recovery.
-This project highlights wireless troubleshooting and Layer-2 forensic analysis skills.
+An analysis of IEEE 802.11 wireless traffic covering beacon frames, authentication,
+association, roaming, deauthentication, and recovery behavior. The project demonstrates
+wireless troubleshooting and Layer-2 forensic analysis techniques.
 
 ---
 
 ### **Project 05 – GRC Risk Management Dashboard**
-A risk management and visualization project featuring an **Excel-based Enterprise Risk
-Management dashboard**. The project focuses on inherent vs. residual risk, risk categories,
-control effectiveness, and executive-level risk reporting aligned with GRC best practices.
+An Excel-based enterprise risk management dashboard designed to support governance and
+decision-making. The dashboard visualizes inherent versus residual risk, control
+effectiveness, and risk categorization, reflecting how GRC teams present risk posture
+to stakeholders and leadership.
 
 ---
 
 ### **Project 06 – Wireshark DNS Analysis**
-A protocol-level analysis of **DNS resolution behavior**, including query/response flows,
-caching effects, and packet-level inspection. The project demonstrates how DNS traffic
-supports higher-layer communications and how it is analyzed in SOC investigations.
+A protocol-level DNS analysis examining query and response flows, caching behavior, and
+resolution dependencies. The project highlights how DNS traffic is analyzed during SOC
+investigations and why DNS is critical to higher-layer communications.
 
 ---
 
-## Skills Demonstrated
+### **Project 07 – Microsoft Entra ID IAM Audit (Privileged Access Review)**
+An identity and access management audit conducted in Microsoft Entra ID, focused on
+privileged access review and governance.
+
+The project includes:
+- Review of Global Administrator role assignments
+- Validation of a break-glass administrative account
+- Role-based access control (RBAC) design using security groups
+- Exported role assignment evidence
+- Documentation of licensing-related governance limitations
+- Compensating control and remediation recommendations
+
+The project is documented using an **audit-style approach**, with findings separated
+from evidence and supported by an evidence index and exported artifacts.
+
+---
+
+## Skills Applied Across Projects
 - Vulnerability assessment and remediation analysis  
 - Network and protocol traffic analysis (HTTP, TCP, DNS, 802.11)  
-- Wireless security and roaming behavior analysis  
-- Risk identification, scoring, and prioritization  
-- GRC documentation and executive risk reporting  
-- Security investigation and analytical reasoning  
+- Wireless security analysis  
+- Identity and access management (IAM) review  
+- Privileged access and RBAC assessment  
+- Risk identification and prioritization  
+- GRC documentation and audit-style reporting  
+- Evidence handling and technical reasoning  
 
 ---
 
-## Portfolio Focus
-This portfolio is designed to reflect **real-world Blue Team, SOC, and GRC workflows**,
-emphasizing both **technical depth** and the ability to **translate findings into risk and
-business context**.
+## Portfolio Approach
+This portfolio is designed to mirror how security work is performed in practice:
 
-Additional projects may be added to expand coverage of SIEM detection, cloud security,
-and security operations automation.
+- SOC and network analysis projects embed technical visuals where the analysis itself
+  depends on packet-level or dashboard interpretation.
+- IAM and audit-focused projects separate findings from evidence to reflect enterprise
+  governance and audit documentation standards.
+
+The goal is to demonstrate **technical competence, analytical thinking, and professional
+documentation**, rather than isolated tool usage.
+
+Additional projects may be added over time to expand coverage of SIEM detection,
+cloud security, identity governance, and security operations automation.
