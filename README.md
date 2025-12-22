@@ -12,7 +12,7 @@ that reflects how security teams operate in real environments.
 
 <h2>👨‍💻 Cybersecurity Projects</h2>
 
-- **[Project 01 – Nessus VM Credentialed Vulnerability Assessment](https://github.com/Oluwaseun-Joseph/Cybersecurity-Blue-Team-SOC-GRC-Portfolio/tree/main/Project-01-Nessus-VM-Credentialed-Vulnerability-Assessment)**  
+- **[Project 01 – Nessus VM Credentialed Vulnerability Assessment](https://github.com/Oluwaseun-Joseph/Cybersecurity-Blue-Team-SOC-GRC-Portfolio/tree/main/Project-01-Nessus-VM-Vulnerability-Assessment)**  
   Credentialed vulnerability assessment with remediation prioritization.
 
 - **[Project 02 – Wireshark HTTP Traffic Analysis](https://github.com/Oluwaseun-Joseph/Cybersecurity-Blue-Team-SOC-GRC-Portfolio/tree/main/Project-02-Wireshark-HTTP-Analysis)**  
