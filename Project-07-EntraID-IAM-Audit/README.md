@@ -34,7 +34,7 @@ Instead of fabricating results, the project documents:
 
 ## Files included
 - `Files/GlobalAdmin_Assignments.csv` — primary evidence export of Global Administrator assignments
-- `Files/IAM_Audit_Report.pdf` — final audit report (you can generate from the included content)
+- `Files/IAM_Audit_Report.pdf` — final audit report 
 - `Docs/Evidence_Index.md` — maps every figure to file paths
 - `Evidence/` — before/after screenshots supporting the audit trail
 
